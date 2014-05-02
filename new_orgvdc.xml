@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CreateVdcParams xmlns="http://www.vmware.com/vcloud/v1.5" name="heydude">
+   <Description>Example VDC</Description>
+   <AllocationModel>AllocationVApp</AllocationModel>
+   <ComputeCapacity>
+      <Cpu>
+         <Units>MHz</Units>
+         <Allocated>2048</Allocated>
+         <Limit>2048</Limit>
+      </Cpu>
+      <Memory>
+         <Units>MB</Units>
+         <Allocated>2048</Allocated>
+         <Limit>2048</Limit>
+      </Memory>
+   </ComputeCapacity>
+   <NicQuota>0</NicQuota>
+   <NetworkQuota>100</NetworkQuota>
+   <VdcStorageProfile>
+      <Enabled>true</Enabled>
+      <Units>MB</Units>
+      <Limit>20480</Limit>
+      <Default>true</Default>
+      <ProviderVdcStorageProfile href="https://vcd-cell01.kendrickcoleman.c0m/api/admin/pvdcStorageProfile/39b44228-6cc1-433f-bf32-419c4ba83e9c"/>
+   </VdcStorageProfile>
+   <ResourceGuaranteedMemory>1</ResourceGuaranteedMemory>
+   <ResourceGuaranteedCpu>1</ResourceGuaranteedCpu>
+   <VCpuInMhz>2048</VCpuInMhz>
+   <IsThinProvision>true</IsThinProvision>
+   <NetworkPoolReference href="https://vcd-cell01.kendrickcoleman.c0m/api/admin/extension/networkPool/17e79eec-f99e-46f2-abb7-838e126d0379"/>
+   <ProviderVdcReference name="ShuttleHosts" href="https://vcd-cell01.kendrickcoleman.c0m/api/admin/providervdc/db496625-5838-4e99-8d75-8fc4e792b054"/>
+   <UsesFastProvisioning>true</UsesFastProvisioning>
+</CreateVdcParams>

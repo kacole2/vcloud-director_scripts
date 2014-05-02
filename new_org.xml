@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<AdminOrg
+   xmlns="http://www.vmware.com/vcloud/v1.5"
+   name="myneworg"
+   type="application/vnd.vmware.admin.organization+xml">
+   <Description>My Organizations Description</Description>
+   <FullName>My New Organization</FullName>
+   <Settings>
+      <OrgGeneralSettings>
+         <CanPublishCatalogs>false</CanPublishCatalogs>
+         <CanPublishExternally>true</CanPublishExternally>
+          <CanSubscribe>false</CanSubscribe>
+         <DeployedVMQuota>0</DeployedVMQuota>
+         <StoredVmQuota>0</StoredVmQuota>
+         <UseServerBootSequence>false</UseServerBootSequence>
+         <DelayAfterPowerOnSeconds>0</DelayAfterPowerOnSeconds>
+      </OrgGeneralSettings>
+      <OrgLdapSettings>
+         <OrgLdapMode>SYSTEM</OrgLdapMode>
+         <CustomUsersOu />
+      </OrgLdapSettings>
+      <OrgEmailSettings>
+         <IsDefaultSmtpServer>true</IsDefaultSmtpServer>
+         <IsDefaultOrgEmail>true</IsDefaultOrgEmail>
+         <FromEmailAddress />
+         <DefaultSubjectPrefix />
+         <IsAlertEmailToAllAdmins>true</IsAlertEmailToAllAdmins>
+        </OrgEmailSettings>
+      <OrgPasswordPolicySettings>
+        <AccountLockoutEnabled>false</AccountLockoutEnabled>
+        <InvalidLoginsBeforeLockout>15</InvalidLoginsBeforeLockout>
+        <AccountLockoutIntervalMinutes>5</AccountLockoutIntervalMinutes>
+      </OrgPasswordPolicySettings>
+   </Settings>
+</AdminOrg>

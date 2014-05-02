@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EdgeGatewayServiceConfiguration
+   xmlns="http://www.vmware.com/vcloud/v1.5">
+   <NatService>
+	   <IsEnabled>true</IsEnabled>
+	   <NatRule>
+	      <RuleType>SNAT</RuleType>
+	      <IsEnabled>true</IsEnabled>
+	      <GatewayNatRule>
+	         <Interface
+	            href="https://vcloud.example.com/api/admin/network/297" />
+	         <OriginalIp>10.0.0.0/24</OriginalIp>
+	         <TranslatedIp>192.168.50.222</TranslatedIp>
+	         <Protocol>any</Protocol>
+	      </GatewayNatRule>
+	   </NatRule>
+   </NatService>
+   <FirewallService>
+      <IsEnabled>true</IsEnabled>
+      <DefaultAction>deny</DefaultAction>
+      <LogDefaultAction>false</LogDefaultAction>
+      <FirewallRule>
+         <IsEnabled>true</IsEnabled>
+         <Description>allow outgoing traffic</Description>
+         <Policy>allow</Policy>
+         <Protocols>
+            <Any>true</Any>
+         </Protocols>
+         <DestinationPortRange>any</DestinationPortRange>
+         <DestinationIp>any</DestinationIp>
+         <SourcePortRange>Any</SourcePortRange>
+         <SourceIp>Internal</SourceIp>
+         <EnableLogging>false</EnableLogging>
+      </FirewallRule>
+   </FirewallService>
+</EdgeGatewayServiceConfiguration>

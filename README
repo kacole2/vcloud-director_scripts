@@ -1,0 +1,15 @@
+These are just some ruby based scripts I created
+
+1st: NewOrg.rb
+Relies on the new_org.xml. This will create a new Organization based on the parameters specified in the XML
+
+2nd. NewOrgVDCandServices.rb (not completely working)
+This will create a new Organization VDC, then deploy a vShield Edge Gateway appliance to the newly created OrgVDC. 
+Waiting 120 seconds after deployment, 2 new services are created on the Gateway appliance. 
+1. A default firewall rule to allow all internal traffic to pass to anything external
+2. A SNAT rule to allow internal traffic to speak on a NATed address externally. 
+These two services are created 99% of the time and it's a PITA to do it manually
+
+There is a slight issue. The new Organization vDC gets created, but there is a problem deploying the Edge Gateway.
+An error is thrown during post because the message says the vcloud ip start and end ranges are outside of the external network sub-pool. 
+WHICH IT ISN'T! I have no idea why it's throwing out this error. Help out if you can!
