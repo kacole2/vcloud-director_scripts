@@ -1,24 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<EdgeGateway xmlns="http://www.vmware.com/vcloud/v1.5" name="ruby_test" operationKey="operationKey">
-    <Description>Edge Gateway description</Description>
+<EdgeGateway xmlns="http://www.vmware.com/vcloud/v1.5" name="EdgeGateway" operationKey="operationKey">
+    <Description>vshield edge 1</Description>
     <Configuration>
         <BackwardCompatibilityMode>false</BackwardCompatibilityMode>
         <GatewayBackingConfig>compact</GatewayBackingConfig>
         <GatewayInterfaces>
             <GatewayInterface>
-                                <Name>uplink1</Name>
+                <Name>uplink1</Name>
                 <DisplayName>uplink1</DisplayName>
-                <Network href="https://vcd-cell01.kendrickcoleman.c0m/api/admin/extension/externalnet/128d6a99-519d-4afd-a733-2534817082df" name="50 VLAN" type="application/vnd.vmware.admin.network+xml"/>
+                <Network href="https://cloud.whereever.com.au/api/admin/extension/externalnet/a9354ee3-50b9-4c46-863d-a91b6130ef4d" name="External-103.250.240.0" type="application/vnd.vmware.admin.network+xml"/>
                 <InterfaceType>uplink</InterfaceType>
                 <SubnetParticipation>
-                    <Gateway>192.168.50.220</Gateway>
+                    <Gateway>103.250.240.1</Gateway>
                     <Netmask>255.255.255.0</Netmask>
-                    <IpRanges>
-                        <IpRange>
-                            <StartAddress>192.168.50.221</StartAddress>
-                            <EndAddress>192.168.50.223</EndAddress>
-                        </IpRange>
-                    </IpRanges>
                 </SubnetParticipation>
                 <ApplyRateLimit>false</ApplyRateLimit>
                 <UseForDefaultRoute>true</UseForDefaultRoute>
