@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<CreateVdcParams xmlns="http://www.vmware.com/vcloud/v1.5" name="heydude">
-   <Description>Example VDC</Description>
+<CreateVdcParams xmlns="http://www.vmware.com/vcloud/v1.5" name="VDC1">
+   <Description>Primary VDC</Description>
    <AllocationModel>AllocationVApp</AllocationModel>
    <ComputeCapacity>
       <Cpu>
@@ -10,8 +10,8 @@
       </Cpu>
       <Memory>
          <Units>MB</Units>
-         <Allocated>2048</Allocated>
-         <Limit>2048</Limit>
+         <Allocated>10240</Allocated>
+         <Limit>10240</Limit>
       </Memory>
    </ComputeCapacity>
    <NicQuota>0</NicQuota>
@@ -19,15 +19,15 @@
    <VdcStorageProfile>
       <Enabled>true</Enabled>
       <Units>MB</Units>
-      <Limit>20480</Limit>
+      <Limit>102400</Limit>
       <Default>true</Default>
-      <ProviderVdcStorageProfile href="https://vcd-cell01.kendrickcoleman.c0m/api/admin/pvdcStorageProfile/39b44228-6cc1-433f-bf32-419c4ba83e9c"/>
+      <ProviderVdcStorageProfile href="https://cloud.whereever.com.au/api/admin/pvdcStorageProfile/f215fe34-8080-4a30-8b8f-a5b35a8b6c5e"/>
    </VdcStorageProfile>
    <ResourceGuaranteedMemory>1</ResourceGuaranteedMemory>
    <ResourceGuaranteedCpu>1</ResourceGuaranteedCpu>
    <VCpuInMhz>2048</VCpuInMhz>
    <IsThinProvision>true</IsThinProvision>
-   <NetworkPoolReference href="https://vcd-cell01.kendrickcoleman.c0m/api/admin/extension/networkPool/17e79eec-f99e-46f2-abb7-838e126d0379"/>
-   <ProviderVdcReference name="ShuttleHosts" href="https://vcd-cell01.kendrickcoleman.c0m/api/admin/providervdc/db496625-5838-4e99-8d75-8fc4e792b054"/>
-   <UsesFastProvisioning>true</UsesFastProvisioning>
+   <NetworkPoolReference href="https://cloud.whereever.com.au/api/admin/extension/networkPool/819baaa8-cec1-41e7-8cf9-079b9dd7f995"/>
+   <ProviderVdcReference name="Provider VDC" href="https://cloud.whereever.com.au/api/admin/providervdc/f4885f31-a661-4513-8aec-37b16e38b8e4"/>
+   <UsesFastProvisioning>false</UsesFastProvisioning>
 </CreateVdcParams>

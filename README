@@ -1,15 +1,42 @@
-These are just some ruby based scripts I created
+This will automatically create a new vCloud organisation + VDC, VShield Edge and VCD Network
+It will also create the default SNAT rule and Allow all outbound Firewall rule.
 
-1st: NewOrg.rb
-Relies on the new_org.xml. This will create a new Organization based on the parameters specified in the XML
+## Setup for Windows
 
-2nd. NewOrgVDCandServices.rb (not completely working)
-This will create a new Organization VDC, then deploy a vShield Edge Gateway appliance to the newly created OrgVDC. 
-Waiting 120 seconds after deployment, 2 new services are created on the Gateway appliance. 
-1. A default firewall rule to allow all internal traffic to pass to anything external
-2. A SNAT rule to allow internal traffic to speak on a NATed address externally. 
-These two services are created 99% of the time and it's a PITA to do it manually
+* Head to http://rubyinstaller.org/downloads/ and download the 32bit ruby 1.9.3 installer for windows
+* Install it, when you get to the screen asking for a destination install folder, tick the "add ruby to path" and "associate rb files" tickboxes
 
-There is a slight issue. The new Organization vDC gets created, but there is a problem deploying the Edge Gateway.
-An error is thrown during post because the message says the vcloud ip start and end ranges are outside of the external network sub-pool. 
-WHICH IT ISN'T! I have no idea why it's throwing out this error. Help out if you can!
+Now open a fresh command prompt to get the new environment variables
+
+* run   -> gem install rest-client
+* run   -> gem install nokogiri
+
+That will get you the two required Gems that these scripts lean on
+
+* run the scripts as per the section at the bottom of this file
+
+## Setup for Mac OSX
+
+Plenty of ways to tackle this, i went with:
+
+* Install Xcode command line tools, open a terminal on your mac, then type "git" or "gcc" it will propmt you to download and install the tool-chain
+* Head over to homebrew and install that (http://brew.sh)
+* Head over to RVM (ruby version manager) and grba that (http://rvm.io)
+* Pull down a later version of ruby and create a new gemset with RVM if you want, but not strictly needed
+
+* Open a new terminal and run -> gem install rest-client
+* Also run  -> gem install nokogiri
+
+Ok that is pretty much it, clone this repo, change director into it and run the scripts below
+
+## How to run the scripts
+
+1. Edit the config file (_config.yml) enter your username and password and desired organization name
+
+2. Run ruby .\1NewOrg.rb
+3. Run ruby .\2NewOrgVDC.rb
+4. Run ruby .\3NewOrgVDCNetwork.rb
+
+## NOTE:  you might need to run script 3 a few times if it throws a 400 error, seems that vCloud takes a while to be ready for a vDC network creation after deploying a new edge.
+
+

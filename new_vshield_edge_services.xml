@@ -1,23 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<EdgeGatewayServiceConfiguration
-   xmlns="http://www.vmware.com/vcloud/v1.5">
+<EdgeGatewayServiceConfiguration xmlns="http://www.vmware.com/vcloud/v1.5">
    <NatService>
 	   <IsEnabled>true</IsEnabled>
 	   <NatRule>
 	      <RuleType>SNAT</RuleType>
 	      <IsEnabled>true</IsEnabled>
 	      <GatewayNatRule>
-	         <Interface
-	            href="https://vcloud.example.com/api/admin/network/297" />
-	         <OriginalIp>10.0.0.0/24</OriginalIp>
-	         <TranslatedIp>192.168.50.222</TranslatedIp>
-	         <Protocol>any</Protocol>
+	         <Interface href="https://cloud.whereever.com.au/api/admin/network/a9354ee3-50b9-4c46-863d-a91b6130ef4d"/>
+	         <OriginalIp>172.16.237.0/24</OriginalIp>
+	         <TranslatedIp>103.250.240.33</TranslatedIp>
+	         <Protocol>Any</Protocol>
 	      </GatewayNatRule>
 	   </NatRule>
    </NatService>
    <FirewallService>
       <IsEnabled>true</IsEnabled>
-      <DefaultAction>deny</DefaultAction>
+      <DefaultAction>drop</DefaultAction>
       <LogDefaultAction>false</LogDefaultAction>
       <FirewallRule>
          <IsEnabled>true</IsEnabled>
@@ -26,10 +24,10 @@
          <Protocols>
             <Any>true</Any>
          </Protocols>
-         <DestinationPortRange>any</DestinationPortRange>
-         <DestinationIp>any</DestinationIp>
+         <DestinationPortRange>Any</DestinationPortRange>
+         <DestinationIp>Any</DestinationIp>
          <SourcePortRange>Any</SourcePortRange>
-         <SourceIp>Internal</SourceIp>
+         <SourceIp>172.16.237.0/24</SourceIp>
          <EnableLogging>false</EnableLogging>
       </FirewallRule>
    </FirewallService>

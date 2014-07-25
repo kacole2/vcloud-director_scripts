@@ -1,0 +1,30 @@
+#AUTHENTICATION
+  username:					"username@System" 					#admin rights for the entire vCloud environment (not just org Admin)
+  password:					"shhhhhhhhhhh"						#password yo
+
+#VCLOUD ACCESS
+  vcd:						"https://cloud.whereever.com.au"	#vCloud URL
+
+#NEW ORG AND VDC NAMES
+  organization:				"FalconHeavy"						#the name for the new organisation
+  orgvdc:					"VDC1"								#the name for the new virtual datacenter
+
+#NEW VDC NETWORK CONFIG
+  vdc_internal_network:		"172.16.237.0/24"					#new private network range for the vDC
+  vdc_internal_net_mask:	"255.255.255.0"						#mask for the private vDC net
+  vdc_internal_gateway:		"172.16.237.1"						#internal ip for vShield edge and vDC net
+  vdc_internal_net_start:	"172.16.237.100"					#start of static range for the vDC net
+  vdc_internal_net_end:		"172.16.237.250"					#end of static range for the vDC net
+  vshield_edge_name:		"EdgeGateway"						#label for the new vshield edge gateway
+
+#VCLOUD PROVIDER VDC RESOURCES
+  pvdc:						"Cloud Provider VDC"				#what is the vCloud PvDC name
+
+  ext_networks:				"External-Network"					#external network for cosumption
+  vcloud_gateway:			"103.200.220.1"						#gateway address for the vCloud external net
+  vcloud_gateway_netmask:	"255.255.255.0"						#mask for vCloud external net
+
+  network_pool:				"Provider VDC-VXLAN-POOL"			#the network pool for the new vDC
+
+#NEW ORG CONFIG
+  storage_profile:			"DR"								#exclude DR from the storage profile config

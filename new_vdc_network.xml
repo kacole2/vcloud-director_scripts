@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<OrgVdcNetwork xmlns="http://www.vmware.com/vcloud/v1.5" name="privateVDC">
+   <Description>Private Network</Description>
+   <Configuration>
+      <IpScopes>
+         <IpScope>
+            <IsInherited>false</IsInherited>
+            <Gateway>172.16.237.1</Gateway>
+            <Netmask>255.255.255.0</Netmask>
+            <Dns1>8.8.8.8</Dns1>
+			<DnsSuffix>cloud.internal</DnsSuffix>
+            <IpRanges>
+               <IpRange>
+                  <StartAddress>172.16.237.100</StartAddress>
+                  <EndAddress>172.16.237.250</EndAddress>
+               </IpRange>
+            </IpRanges>
+         </IpScope>
+      </IpScopes>
+      <FenceMode>natRouted</FenceMode>
+   </Configuration>
+   <EdgeGateway href="https://cloud.whereever.com.au/api/admin/edgeGateway/01bacfe0-a226-44ca-ad9c-159182199a13"/>
+   <IsShared>false</IsShared>
+</OrgVdcNetwork>

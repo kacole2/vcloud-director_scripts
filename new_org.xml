@@ -1,29 +1,36 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<AdminOrg
-   xmlns="http://www.vmware.com/vcloud/v1.5"
-   name="myneworg"
-   type="application/vnd.vmware.admin.organization+xml">
-   <Description>My Organizations Description</Description>
-   <FullName>My New Organization</FullName>
+<AdminOrg xmlns="http://www.vmware.com/vcloud/v1.5" name="FalconHeavy" type="application/vnd.vmware.admin.organization+xml">
+   <Description>vCloud Organisation</Description>
+   <FullName>Customer vCloud Organisation</FullName>
+   <IsEnabled>true</IsEnabled>
    <Settings>
       <OrgGeneralSettings>
          <CanPublishCatalogs>false</CanPublishCatalogs>
-         <CanPublishExternally>true</CanPublishExternally>
+         <CanPublishExternally>false</CanPublishExternally>
           <CanSubscribe>false</CanSubscribe>
-         <DeployedVMQuota>0</DeployedVMQuota>
-         <StoredVmQuota>0</StoredVmQuota>
+         <DeployedVMQuota>3</DeployedVMQuota>
+         <StoredVmQuota>5</StoredVmQuota>
          <UseServerBootSequence>false</UseServerBootSequence>
          <DelayAfterPowerOnSeconds>0</DelayAfterPowerOnSeconds>
       </OrgGeneralSettings>
+      <VAppLeaseSettings>
+          <DeleteOnStorageLeaseExpiration>false</DeleteOnStorageLeaseExpiration>
+          <DeploymentLeaseSeconds>0</DeploymentLeaseSeconds>
+          <StorageLeaseSeconds>0</StorageLeaseSeconds>
+      </VAppLeaseSettings>
+      <VAppTemplateLeaseSettings>
+          <DeleteOnStorageLeaseExpiration>false</DeleteOnStorageLeaseExpiration>
+		  <StorageLeaseSeconds>0</StorageLeaseSeconds>
+	  </VAppTemplateLeaseSettings>
       <OrgLdapSettings>
-         <OrgLdapMode>SYSTEM</OrgLdapMode>
-         <CustomUsersOu />
+         <OrgLdapMode>NONE</OrgLdapMode>
+         <CustomUsersOu/>
       </OrgLdapSettings>
       <OrgEmailSettings>
          <IsDefaultSmtpServer>true</IsDefaultSmtpServer>
          <IsDefaultOrgEmail>true</IsDefaultOrgEmail>
-         <FromEmailAddress />
-         <DefaultSubjectPrefix />
+         <FromEmailAddress/>
+         <DefaultSubjectPrefix/>
          <IsAlertEmailToAllAdmins>true</IsAlertEmailToAllAdmins>
         </OrgEmailSettings>
       <OrgPasswordPolicySettings>
@@ -31,5 +38,10 @@
         <InvalidLoginsBeforeLockout>15</InvalidLoginsBeforeLockout>
         <AccountLockoutIntervalMinutes>5</AccountLockoutIntervalMinutes>
       </OrgPasswordPolicySettings>
+	  <OrgOperationLimitsSettings>
+	      <ConsolesPerVmLimit>5</ConsolesPerVmLimit>
+	      <OperationsPerUser>10</OperationsPerUser>
+	      <OperationsPerOrg>10</OperationsPerOrg>
+	  </OrgOperationLimitsSettings>
    </Settings>
 </AdminOrg>
