@@ -1,3 +1,4 @@
+# Ruby scripts that show how to interact with the vCloud API
 This will automatically create a new vCloud organisation + VDC, VShield Edge and VCD Network
 It will also create the default SNAT rule and Allow all outbound Firewall rule.
 
@@ -32,7 +33,6 @@ Ok that is pretty much it, clone this repo, change director into it and run the 
 ## How to run the scripts
 
 1. Edit the config file (_config.yml) enter your username and password and desired organization name
-
 2. Run ruby .\1NewOrg.rb
 3. Run ruby .\2NewOrgVDC.rb
 4. Run ruby .\3NewOrgVDCNetwork.rb

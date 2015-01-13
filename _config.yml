@@ -1,9 +1,9 @@
 #AUTHENTICATION
-  username:					"username@System" 					#admin rights for the entire vCloud environment (not just org Admin)
-  password:					"shhhhhhhhhhh"						#password yo
+  username:					"username@org/System" 					#admin rights for the entire vCloud environment (not just org Admin)
+  password:					"mysecretun"						#password yo
 
 #VCLOUD ACCESS
-  vcd:						"https://cloud.whereever.com.au"	#vCloud URL
+  vcd:						"https://vcd.vchs.vmware.com"	#vCloud URL
 
 #NEW ORG AND VDC NAMES
   organization:				"FalconHeavy"						#the name for the new organisation
