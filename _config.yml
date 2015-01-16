@@ -1,6 +1,6 @@
 #AUTHENTICATION
-  username:					"username@org/System" 					#admin rights for the entire vCloud environment (not just org Admin)
-  password:					"mysecretun"						#password yo
+  username:					"user@System" 					#admin rights for the entire vCloud environment (not just org Admin)
+  password:					"secretpw"						#password yo
 
 #VCLOUD ACCESS
   vcd:						"https://vcd.vchs.vmware.com"	#vCloud URL

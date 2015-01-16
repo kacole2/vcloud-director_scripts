@@ -34,17 +34,15 @@ end
 
 # setup connection and log in
 vcd_session(@vcd, @username, @password)
-puts "Awsome! We're logged in. My session is " + @mysession
+#puts "Awsome! We're logged in. My session is " + @mysession
 
-# 5. create a method to logout of vCloud Air so sessions aren't maxed
-# (cut/paste this to the end)
-RestClient.delete(@vcd + '/api/session', :accept => @accept_param, :x_vcloud_authorization => @mysession)
 
-=begin
+
+#=begin
 # 6. XML Output of the Org vDC
 # Let's explore what we need to gather from here
-puts RestClient.get(@vcd + '/api/org', :accept => @accept_param, :x_vcloud_authorization => @mysession)
-=end
+#puts RestClient.get(@vcd + '/api/org', :accept => @accept_param, :x_vcloud_authorization => @mysession)
+#=end
 
 =begin
 # 7. Instantiate a new Nori object for parsing XML to Hash. Why? Because XML...
@@ -53,36 +51,37 @@ parser = Nori.new
 puts parser.parse(RestClient.get(@vcd + '/api/org', :accept => @accept_param, :x_vcloud_authorization => @mysession))
 =end
 
-=begin
+#=begin
 # 8. Well that's sort of ugly, let's awesome print it
 # Comment out 7
+parser = Nori.new
 orgList = parser.parse(RestClient.get(@vcd + '/api/org', :accept => @accept_param, :x_vcloud_authorization => @mysession))
-ap orgList
-=end
+#ap orgList
+#=end
 
-=begin
+#begin
 #  9. We need to start the drill down process. Using Nori as a hash we can grab the variable we need
 # In pretty much every case we need a href to keep drilling
 # comment out ap from 8
 orgHref = orgList['OrgList']['Org']['@href']
-ap orgHref
-=end
+#ap orgHref
+#end
 
-=begin
+
 # 10. Now lets drill into the Org and see what's available there
 # comment out ap from 9
 orgLinks = parser.parse(RestClient.get(orgHref, :accept => @accept_param, :x_vcloud_authorization => @mysession))
-ap orgLinks
-=end
+#ap orgLinks
 
-=begin
+
+
 # 11. To make things easier, let's drill down once more so the array is easier to manipulate
 # comment out ap from 10
 orgLinkItems = orgLinks['Org']['Link']
-ap orgLinkItems
-=end
+#ap orgLinkItems
 
-=begin
+
+
 # 12. Now if we want to deploy a vApp from catalog, we need to get the individial catalogs
 # to do this we will start with an empty array called catalogs because there may be more than one catalog
 # from the ap above, we can see that catalogs have a certain 'type' associated with them. Lets loop through them
@@ -94,17 +93,17 @@ orgLinkItems.each do |item|
 		catalogs << item['@href']
 	end
 end
-=end
+#ap catalogs
 
-=begin
+
 # 13. Now we need to cycle through each catalog to see what it is we want
-catalogs.each do |catalog|
-	singlecat = parser.parse(RestClient.get(catalog, :accept => @accept_param, :x_vcloud_authorization => @mysession))
-	ap singlecat
-end
-=end
+#catalogs.each do |catalog|
+#	singlecat = parser.parse(RestClient.get(catalog, :accept => @accept_param, :x_vcloud_authorization => @mysession))
+#	ap singlecat
+#end
 
-=begin
+
+
 # 14. The above command shows we need the CatalogItems retrieved. Lets put all those into a single array called vAppTemplates
 # NOTE (comment out about code now)
 # comment out 13
@@ -120,8 +119,8 @@ catalogs.each do |catalog|
 end
 
 # Lets see our arrays of items
-ap vAppTemplates
-=end
+#ap vAppTemplates
+
 
 =begin
 # 15. Now we need to figure out which template we want to provision.  
@@ -149,7 +148,8 @@ vAppTemplates.each do |vAppTemplate|
 end
 =end
 
-=begin
+
+
 # 17. Dig even deeper to get the network name that is needed for the XML POST
 # comment out 16
 vAppTemplates.each do |vAppTemplate|
@@ -160,9 +160,9 @@ vAppTemplates.each do |vAppTemplate|
 		@vappNetworkName = vappdeets["VAppTemplate"]["NetworkConfigSection"]["NetworkConfig"][0]["@networkName"]
 	end
 end
-=end
 
-=begin
+
+
 # 18. We need the network for the template.
 orgLinkItems.each do |item|
 	if item['@name'] == "24-194-default-routed"
@@ -177,9 +177,7 @@ orgLinkItems.each do |item|
 		@vdcHref = item['@href']
 	end
 end
-=end
 
-=begin
 # 19. Let's generate the xml needed for the post operation
 File.open("xmlpost.xml", "w+") { |file| file.write(
 '<?xml version="1.0" encoding="UTF-8"?>
@@ -212,9 +210,9 @@ File.open("xmlpost.xml", "w+") { |file| file.write(
 
 # Pull the XML file into memory
 xml = File.read('xmlpost.xml')
-=end
 
-=begin
+
+
 # 20. Let's Perform a POST 
 post = RestClient.post(@vdcHref + '/action/instantiateVAppTemplate', xml, :content_type => 'application/vnd.vmware.vcloud.instantiateVAppTemplateParams+xml', :accept => @accept_param, :x_vcloud_authorization => @mysession)
 
@@ -223,5 +221,9 @@ ap post.code
 
 #delete file we no longer need
 File.delete(File.join(File.dirname(File.expand_path(__FILE__)), 'xmlpost.xml'))
-=end
+
+
+# 5. create a method to logout of vCloud Air so sessions aren't maxed
+# (cut/paste this to the end)
+RestClient.delete(@vcd + '/api/session', :accept => @accept_param, :x_vcloud_authorization => @mysession)
 
